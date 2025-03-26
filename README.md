@@ -9,3 +9,28 @@ Na portaria, deve haver uma *tela contendo cards clicáveis* contendo o nome de 
 No sistema deve haver uma *tela com todos os funcionários cadastrados*. O usuário pode *selecionar um funcionário* e esta seleção deve mostrar todos os registros feitos pela portaria para aquele funcionário."
 
 ## diagrama de classes.
+```mermaid
+classDiagram
+    class Funcionario {
+        -String nome
+        -String cargo
+        -int idade
+        -String email
+        -List<ControleEntrada> controleEntrada
+        -boolean entrou
+    }
+    
+    class Porteiro {
+        -String email
+        -String senha
+    }
+
+    class ControleEntrada {
+        -String acao
+        -Date dataOcorredido
+    }
+
+    Funcionario <|-- Porteiro
+    Funcionario "1" --> "*" ControleEntrada : tem
+```
+
