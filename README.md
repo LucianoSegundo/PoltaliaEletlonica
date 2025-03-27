@@ -16,18 +16,18 @@ classDiagram
         -String cargo
         -int idade
         -String email
+        -String  urlPerfil
         -List<ControleEntrada> controleEntrada
         -boolean entrou
     }
     
     class Porteiro {
-        -String email
         -String senha
     }
 
     class ControleEntrada {
-        -String acao
-        -Date dataOcorredido
+        -String tipo
+        -Date data
     }
 
     Funcionario <|-- Porteiro
