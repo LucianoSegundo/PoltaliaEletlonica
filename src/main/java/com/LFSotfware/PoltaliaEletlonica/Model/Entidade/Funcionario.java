@@ -5,11 +5,10 @@ import java.util.List;
 
 public class Funcionario {
 
+	private Long id;
 	private String nome;
 	private String cargo;
-	private String email;
 	private String  urlPerfil;
-	private int idade;
 	private boolean entrou;
 	private List<ControleEntrada> controleEntrada;
 	
@@ -37,35 +36,13 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public boolean setEmail(String email) {
-		
-		if (email == null || email.isBlank()) return false;
-		
-		if (validarEmail(email) == false) return false;
-		
-		this.email = email;
-
-		return true;
-	}
-
+	
 	public String getUrlPerfil() {
 		return urlPerfil;
 	}
 
 	public void setUrlPerfil(String urlPerfil) {
 		this.urlPerfil = urlPerfil;
-	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
 	}
 
 	public boolean isEntrou() {
@@ -83,9 +60,14 @@ public class Funcionario {
 	public void setControleEntrada(List<ControleEntrada> controleEntrada) {
 		this.controleEntrada = controleEntrada;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
-	private boolean validarEmail(String email) {
-		if( email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) return true;
-			return false;
-		}
+
 }

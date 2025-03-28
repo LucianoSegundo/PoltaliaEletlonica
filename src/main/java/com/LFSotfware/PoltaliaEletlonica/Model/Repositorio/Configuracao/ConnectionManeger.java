@@ -31,10 +31,6 @@ public class ConnectionManeger {
 		return conexao;
 	}
 
-	public static Connection getNovaConexao() {
-		return instanciarConexao(conexao);
-	}
-
 	private static Connection instanciarConexao(Connection conexao) {
 		try {
 
@@ -55,10 +51,7 @@ public class ConnectionManeger {
 				+ "nome TEXT NOT NULL, \n"
 				+ "cargo TEXT NOT NULL, \n"
 				+ "urlPerfil TEXT NOT NULL, \n"
-				+ "email TEXT NOT NULL UNIQUE, \n"
-				+ "idade INTEGER NOT NULL, \n"
-				+ "entrou BOOLEAN,"
-				+ "senha TEXT);\n";
+				+ "entrou BOOLEAN);\n";
 	
 		conexao.prepareStatement(query).execute();
 		
@@ -67,7 +60,7 @@ public class ConnectionManeger {
 		query = "CREATE TABLE controle(\n"
 				+ "idcontrole INTEGER PRIMARY KEY AUTOINCREMENT, \n"
 				+ "tipo TEXT NOT NULL, \n"
-				+ "datahora DATETIME NOT NULL, \n"
+				+ "datahora TIMESTAMP NOT NULL, \n"
 				+ "idfunci INTEGER, \n"
 				+ "FOREIGN KEY (idfunci) REFERENCES funcionario(idfunci) ON DELETE CASCADE);\n";
 		

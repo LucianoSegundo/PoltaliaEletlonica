@@ -1,9 +1,19 @@
 package com.LFSotfware.PoltaliaEletlonica.Model.Repositorio;
 
-public interface Repositorio<T> {
+import java.sql.SQLException;
+import java.util.List;
 
-	  public void inserir(T item);
+import org.springframework.stereotype.Repository;
+
+import com.LFSotfware.PoltaliaEletlonica.Controller.DTO.Card;
+import com.LFSotfware.PoltaliaEletlonica.Model.Entidade.Funcionario;
+
+public interface Repositorio<T, dto> {
+
+	  public void inserir(T item) throws SQLException;
 	  public void remover(T item);
-	  public void alterar(T item);
-	  public T ler ();
+	  public void alterar(T item) throws SQLException;
+	  public T ler (Long id) throws SQLException;
+	  public void inserir(T item, Long id) throws SQLException;
+	  public List<dto> listar() throws SQLException;
 }
